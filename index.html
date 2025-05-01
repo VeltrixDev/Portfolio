@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lilian Levert - Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <style>
-    :root {
-      --bg: #121212;
-      --text: #ffffff;
-      --accent: #ff6f61;
-      --card: #1e1e1e;
-      --shadow: rgba(0, 0, 0, 0.3);
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lilian Levert - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+          --bg: #121212;
+          --text: #ffffff;
+          --accent: #ff6f61;
+          --card: #1e1e1e;
+          --shadow: rgba(0, 0, 0, 0.3);
+        }
+    
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Outfit', sans-serif;
+          scroll-behavior: smooth;
+        }
+    
+        body {
+          width: 100%;
+          height: 100%;
+          background: #000000;
+          color: #fff;
+          --gap: 5em;
+          --line: 1px;
+          --color: rgba(255, 255, 255, 0.2);
+          background-image: linear-gradient(-90deg,transparent calc(var(--gap) - var(--line)),var(--color) calc(var(--gap) - var(--line) + 1px),var(--color) var(--gap)),linear-gradient(0deg,transparent calc(var(--gap) - var(--line)),
+          var(--color) calc(var(--gap) - var(--line) + 1px),
+          var(--color) var(--gap)
+        );
+      background-size: var(--gap) var(--gap);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      width: 100%;
-      height: 100%;
-      background: #000000;
-      color: #fff;
-      --gap: 5em;
-      --line: 1px;
-      --color: rgba(255, 255, 255, 0.2);
-      background-image: linear-gradient(-90deg,transparent calc(var(--gap) - var(--line)),var(--color) calc(var(--gap) - var(--line) + 1px),var(--color) var(--gap)),linear-gradient(0deg,transparent calc(var(--gap) - var(--line)),
-      var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    );
-  background-size: var(--gap) var(--gap);
-}
-
+    
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #000000;
-      padding: 1rem 2rem;
+      height: 110px; 
+      background: #000; 
+      color: #fff;
+      padding: 2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: none; 
     }
-
+    
+    
     nav::after {
       content: '';
       position: absolute;
@@ -61,551 +67,569 @@
       background: linear-gradient(20deg, #f56dee, #ffffff00, #ffffff00);
       background-size: 200% 100%;
       animation: borderAnimation 3s linear infinite;
+      pointer-events: none;
     }
-
-    @keyframes borderAnimation {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 200% 0%; }
+    
+    
+        @keyframes borderAnimation {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 200% 0%; }
+        }
+        nav.scrolled {
+      background-color: rgba(0, 0, 0, 0.3); 
+      backdrop-filter: blur(10px); 
     }
-
-    .hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle at top, #0f0f1a 0%, #000 100%);
-  padding: 6rem 2rem 2rem;
-}
-
-.matrix-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.pinimg.com/originals/db/03/96/db039626bfa2ecc53f0f6e7f335aef4c.gif') no-repeat;
-  background-size: cover;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-  animation: scroll 60s linear infinite;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto; 
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
-.code-editor {
-  background-color: #1e1e1e00;
-  color: #d4d4d4;
-  font-family: 'Fira Code', monospace;
-  font-size: 20px;
-  padding: 16px;
-  border-radius: 8px;
-  width: 600px;
-  overflow-x: auto;
-  box-shadow: 0 0px 30px rgb(0, 0, 0);
-  margin: 20px auto;
-  text-align: left;
-}
-
-.line {
-  white-space: pre;
-  line-height: 1.5em;
-}
-
-.line-number {
-  display: inline-block;
-  width: 2em;
-  margin-right: 8px;
-  color: #858585;
-  user-select: none;
-}
-
-.tag {
-  color: #7d00f1;
-}
-
-.attr {
-  color: #c300ff;
-}
-
-.val {
-  color: #e387ff;
-}
-
-.bool {
-  color: #59ff00;
-}
-
-@keyframes flicker-glitch {
-  0%, 100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
-  50% { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
-}
-
-.floating-avatar {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #f56dee;
-  animation: float 6s ease-in-out infinite;
-  margin-bottom: 1rem;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-40px); }
-  100% { transform: translateY(0px); }
-}
-
-.pulse-text {
-  animation: pulse 1.5s infinite;
-  display: inline-block;
-  color: #f56dee;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.03); }
-}
-
-    .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-left: 125px;
-      font-family: monospace;
+    
+    
+        .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #0f0f1a 0%, #000 100%);
+      padding: 6rem 2rem 2rem;
+    }
+    
+    .matrix-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.pinimg.com/originals/db/03/96/db039626bfa2ecc53f0f6e7f335aef4c.gif') no-repeat;
+      background-size: cover;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+      animation: scroll 60s linear infinite;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto; 
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+    }
+    
+    .code-editor {
+      background-color: #1e1e1e00;
+      color: #d4d4d4;
+      font-family: 'Fira Code', monospace;
+      font-size: 20px;
+      padding: 16px;
+      border-radius: 8px;
+      width: 600px;
+      overflow-x: auto;
+      box-shadow: 0 0px 30px rgb(0, 0, 0);
+      margin: 20px auto;
+      text-align: left;
+    }
+    
+    .line {
+      white-space: pre;
+      line-height: 1.5em;
+    }
+    
+    .line-number {
+      display: inline-block;
+      width: 2em;
+      margin-right: 8px;
+      color: #858585;
       user-select: none;
     }
-
-    .logo .veltrix { color: #f1c1ff; }
-    .logo .dev { color: #f56dee; }
-    .flicker { opacity: 0; transition: opacity 0.3s ease-in-out; }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    
+    .tag {
+      color: #7d00f1;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-grow: 1;
+    
+    .attr {
+      color: #c300ff;
     }
-
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      margin-right: 20px;
-      font-size: 1rem;
-      transition: transform 0.2s ease, color 0.3s ease;
+    
+    .val {
+      color: #e387ff;
     }
-
-    .nav-links a:hover {
-      color: #f56dee;
-      transform: scale(1.1);
+    
+    .bool {
+      color: #59ff00;
     }
-
-    .nav-icons {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    
+    @keyframes flicker-glitch {
+      0%, 100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+      50% { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
     }
-
-    .icon-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      margin-left: 1rem;
+    
+    .floating-avatar {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
       border-radius: 50%;
       border: 2px solid #f56dee;
-      background: #2a2a2a;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .icon-link:hover { background: #f56dee; }
-    .icon-link i { font-size: 1.2rem; margin-top: 2px; }
-
-    .icon-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    .icon-wrapper .icon-lock {
-      position: absolute;
-      bottom: 0px;
-      right: 5px;
-      font-size: 0.6rem;
-      color: #f1c1ff;
-    }
-
-    .icon-wrapper:hover::after {
-      content: 'En cours de création ! Bientôt disponible !';
-      position: absolute;
-      bottom: 35px;
-      right: 0;
-      background: #2a2a2a;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 4px 6px;
-      border-radius: 5px;
-      white-space: nowrap;
-      opacity: 1;
-    }
-
-    header { padding: 6rem 2rem 2rem 2rem; text-align: center; }
-    h1 span { color: var(--accent); }
-    section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-
-    .project-card {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 12px var(--shadow);
-      transition: transform 0.3s;
-    }
-
-    .project-card:hover { transform: translateY(-5px); }
-    .project-card img { max-width: 100%; border-radius: 0.5rem; margin-bottom: 1rem; }
-
-    .cta-button {
-  font-size: 1.5rem;
-  color: #fafafa;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fafafa;
-  background: #000000;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  margin: 35px 0;
-}
-
-.cta-button:active {
-  box-shadow: none;
-  transform: translate(3px, 3px);
-}
-
-    form input, form textarea {
-      width: 100%;
+      animation: float 6s ease-in-out infinite;
       margin-bottom: 1rem;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      border: none;
-      background: #2a2a2a;
-      color: #fff;
     }
-
-    form input[type="submit"] {
-      background: var(--accent);
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-40px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse-text {
+      animation: pulse 1.5s infinite;
+      display: inline-block;
+      color: #f56dee;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.9; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.03); }
+    }
+    
+        .logo {
+          font-size: 2rem;
+          font-weight: bold;
+          margin-left: 125px;
+          font-family: monospace;
+          user-select: none;
+        }
+    
+        .logo .veltrix { color: #f1c1ff; }
+        .logo .dev { color: #f56dee; }
+        .flicker { opacity: 0; transition: opacity 0.3s ease-in-out; }
+    
+        .nav-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+    
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+          justify-content: center;
+          flex-grow: 1;
+        }
+    
+        .nav-links a {
+          color: var(--text);
+          text-decoration: none;
+          margin-right: 20px;
+          font-size: 1rem;
+          transition: transform 0.2s ease, color 0.3s ease;
+        }
+    
+        .nav-links a:hover {
+          color: #f56dee;
+          transform: scale(1.1);
+        }
+    
+        .nav-icons {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+    
+        .icon-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          margin-left: 1rem;
+          border-radius: 50%;
+          border: 2px solid #f56dee;
+          background: #2a2a2a;
+          color: #fff;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+    
+        .icon-link:hover { background: #f56dee; }
+        .icon-link i { font-size: 1.2rem; margin-top: 2px; }
+    
+        .icon-wrapper {
+          position: relative;
+          display: inline-block;
+        }
+    
+        .icon-wrapper .icon-lock {
+          position: absolute;
+          bottom: 0px;
+          right: 5px;
+          font-size: 0.6rem;
+          color: #f1c1ff;
+        }
+    
+        .icon-wrapper:hover::after {
+          content: 'En cours de création ! Bientôt disponible !';
+          position: absolute;
+          bottom: 35px;
+          right: 0;
+          background: #2a2a2a;
+          color: #fff;
+          font-size: 0.7rem;
+          padding: 4px 6px;
+          border-radius: 5px;
+          white-space: nowrap;
+          opacity: 1;
+        }
+    
+        header { padding: 6rem 2rem 2rem 2rem; text-align: center; }
+        h1 span { color: var(--accent); }
+        section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+    
+        .project-card {
+          background: var(--card);
+          border-radius: 1rem;
+          padding: 2rem;
+          box-shadow: 0 4px 12px var(--shadow);
+          transition: transform 0.3s;
+        }
+    
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card img { max-width: 100%; border-radius: 0.5rem; margin-bottom: 1rem; }
+    
+        .cta-button {
+      font-size: 1.5rem;
+      color: #fafafa;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #fafafa;
+      background: #000000;
+      box-shadow: 3px 3px #fafafa;
       cursor: pointer;
+      margin: 35px 0;
     }
-
-    footer { text-align: center; padding: 2rem; color: #aaa; }
-
-    .burger {
-      display: none;
-      padding: 1rem;
-      flex-direction: column;
+    
+    .cta-button:active {
+      box-shadow: none;
+      transform: translate(3px, 3px);
+    }
+    
+        form input, form textarea {
+          width: 100%;
+          margin-bottom: 1rem;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          border: none;
+          background: #2a2a2a;
+          color: #fff;
+        }
+    
+        form input[type="submit"] {
+          background: var(--accent);
+          cursor: pointer;
+        }
+    
+        footer { text-align: center; padding: 2rem; color: #aaa; }
+    
+        .burger {
+          display: none;
+          padding: 1rem;
+          flex-direction: column;
+          cursor: pointer;
+          z-index: 1001;
+        }
+    
+        .burger div {
+          width: 35px;
+          height: 3px;
+          background: var(--text);
+          margin: 4px;
+          transition: all 0.3s ease;
+        }
+    
+        .close-btn {
+          position: absolute;
+          top: -1.25rem;
+          right: 2rem;
+          font-size: 5rem;
+          color: white;
+          cursor: pointer;
+          z-index: 1001;
+        }
+    
+        @media (max-width: 1200px) {
+            nav {
+        padding: 1rem;
+      }
+    
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    
+      .cta-button {
+      font-size: 1rem;
+      color: #fafafa;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #fafafa;
+      background: #000000;
+      box-shadow: 3px 3px #fafafa;
       cursor: pointer;
-      z-index: 1001;
+      margin: 35px 0;
     }
-
-    .burger div {
-      width: 35px;
-      height: 3px;
-      background: var(--text);
-      margin: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: -1.25rem;
-      right: 2rem;
-      font-size: 5rem;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    @media (max-width: 1200px) {
-        nav {
-    padding: 1rem;
-  }
-
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .cta-button {
-  font-size: 1rem;
-  color: #fafafa;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fafafa;
-  background: #000000;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  margin: 35px 0;
-}
-
-  .code-editor {
-    width: 100%;
-    font-size: 15px; 
-    padding: 15px; 
-    border-radius: 8px; 
-    margin: 30px auto; 
-    background-color: rgba(0, 0, 0, 0.7); 
-    color: #f4f4f4;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  .line-number {
-    width: 2em; 
-    margin-right: 8px;
-  }
-
-  .line {
-    line-height: 1.7em; 
-  }
-
-      .logo {
-    flex: 1;
-    font-size: 1.5rem;
-    margin-left: 0;
-    text-align: left;
-  }
-
-  .nav-icons {
-    flex: 1;
-    justify-content: center;
-    margin-left: -70px;
-    display: flex;
-  }
-      .burger { display: flex; position: absolute; right: 1rem; }
-
-      .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-    z-index: 1000;
-    padding: 2rem;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .nav-links a {
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover {
-    color: var(--accent);
-  }
-
-      .burger.active div:nth-child(1) { opacity: 0; }
-      .burger.active div:nth-child(2) { opacity: 0; }
-      .burger.active div:nth-child(3) { opacity: 0; }
-
-      .identity-container {
-    font-size: 1rem;
-    padding: 1.5rem;
-    line-height: 1.4;
-    border-radius: 8px;
-  }
-
-  
-
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="logo" id="logo">
-      &lt;<span class="veltrix letter">V</span><span class="veltrix letter">e</span><span class="veltrix letter">l</span><span class="veltrix letter">t</span><span class="veltrix letter">r</span><span class="veltrix letter">i</span><span class="veltrix letter">x</span><span class="dev letter">D</span><span class="dev letter">e</span><span class="dev letter">v</span>/&gt;
-    </div>
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-container">
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Accueil</a>
-        <a href="#about">À propos</a>
-        <a href="#skills">Compétences</a>
-        <a href="#projects">Projets</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="nav-icons">
-        <div class="icon-wrapper">
-            <a href="#" class="icon-link disabled-link" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>              
-          <i class="fas fa-lock icon-lock"></i>
-        </div>
-        <div class="icon-wrapper">
-            <a href="#" class="icon-link disabled-link" aria-label="Linktree">
-                <i class="fas fa-link"></i>
-              </a>              
-          <i class="fas fa-lock icon-lock"></i>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <header id="home" class="hero">
-    <div class="matrix-bg"></div>
-    <div class="hero-content">
-      <img src="me.png" alt="Lilian Levert" class="floating-avatar avatar-glow" />
+    
+      .code-editor {
+        width: 100%;
+        font-size: 16px; 
+        padding: 15px; 
+        border-radius: 8px; 
+        margin: 30px auto; 
+        background-color: rgba(0, 0, 0, 0.7); 
+        color: #f4f4f4;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+    
+      .line-number {
+        width: 2em; 
+        margin-right: 8px;
+      }
+    
+      .line {
+        line-height: 1.7em; 
+      }
+    
+          .logo {
+        flex: 1;
+        font-size: 1.5rem;
+        margin-left: 0;
+        text-align: left;
+      }
+    
+      .nav-icons {
+        flex: 1;
+        justify-content: center;
+        margin-left: -70px;
+        display: flex;
+      }
+          .burger { display: flex; position: absolute; right: 1rem; }
+    
+          .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(8px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 1000;
+        padding: 2rem;
+      }
+    
+      .nav-links.active {
+        transform: translateX(0);
+      }
+    
+      .nav-links a {
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+    
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+    
+          .burger.active div:nth-child(1) { opacity: 0; }
+          .burger.active div:nth-child(2) { opacity: 0; }
+          .burger.active div:nth-child(3) { opacity: 0; }
+    
+          .identity-container {
+        font-size: 1rem;
+        padding: 1.5rem;
+        line-height: 1.4;
+        border-radius: 8px;
+      }
+    
       
-      <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">Je crée des expériences web <strong style="color:#7d00f1;">modernes</strong>, <strong style="color:#c300ff;">interactives</strong> et <strong style="color:#e387ff;">performantes</strong> !</p>
-  
-      <div class="code-editor">
-        <div class="line"><span class="line-number">1</span> <span class="tag">&lt;présentation&gt;</span></div>
-        <div class="line"><span class="line-number">2</span>       <span class="attr">nom</span>: "<span class="val">Lilian Levert</span>",</div>
-        <div class="line"><span class="line-number">3</span>       <span class="attr">alias</span>: "<span class="val">VeltrixDev</span>",</div>
-        <div class="line"><span class="line-number">4</span>       <span class="attr">rôle</span>: "<span class="val">Développeur Front-End</span>",</div>
-        <div class="line"><span class="line-number">5</span>       <span class="attr">mission</span>: "<span class="val">Réaliser un maximum de projet</span>",</div>
-        <div class="line"><span class="line-number">6</span>       <span class="attr">stack</span>: [<span class="val">"HTML"</span>, <span class="val">"CSS"</span>, <span class="val">"JS"</span>, <span class="val">"React"</span>],</div>
-        <div class="line"><span class="line-number">7</span>       <span class="attr">statut</span>: "<span class="bool">en cours de réalisation...</span>"</div>
-        <div class="line"><span class="line-number">8</span> <span class="tag">&lt;/présentation&gt;</span></div>
-      </div>      
+    
+        }
+    </style>
+</head>
 
-     <a href="#contact" class="cta-button">Discutons de ton projet</a>
+<body>
+    <nav>
+        <div class="logo" id="logo">
+            &lt;<span class="veltrix letter">V</span><span class="veltrix letter">e</span><span class="veltrix letter">l</span><span class="veltrix letter">t</span><span class="veltrix letter">r</span><span class="veltrix letter">i</span><span class="veltrix letter">x</span><span
+            class="dev letter">D</span><span class="dev letter">e</span><span class="dev letter">v</span>/&gt;
+        </div>
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-container">
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Accueil</a>
+                <a href="#about">À propos</a>
+                <a href="#skills">Compétences</a>
+                <a href="#projects">Projets</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <div class="icon-wrapper">
+                    <a href="#" class="icon-link disabled-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <i class="fas fa-lock icon-lock"></i>
+                </div>
+                <div class="icon-wrapper">
+                    <a href="#" class="icon-link disabled-link" aria-label="Linktree">
+                        <i class="fas fa-link"></i>
+                    </a>
+                    <i class="fas fa-lock icon-lock"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    </div>
-  </header>  
-  
-  <section id="about">
-  </section>
+    <header id="home" class="hero">
+        <div class="matrix-bg"></div>
+        <div class="hero-content">
+            <img src="me.png" alt="Lilian Levert" class="floating-avatar avatar-glow" />
 
-  <section id="skills">
-  </section>
+            <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">Je crée des expériences web <strong style="color:#7d00f1;">modernes</strong>, <strong style="color:#c300ff;">interactives</strong> et <strong style="color:#e387ff;">performantes</strong> !</p>
 
-  <section id="projects">
-  </section>
+            <div class="code-editor">
+                <div class="line"><span class="line-number">1</span> <span class="tag">&lt;présentation&gt;</span></div>
+                <div class="line"><span class="line-number">2</span>      <span class="attr">nom</span>: "<span class="val">Lilian Levert</span>",</div>
+                <div class="line"><span class="line-number">3</span>      <span class="attr">alias</span>: "<span class="val">VeltrixDev</span>",</div>
+                <div class="line"><span class="line-number">4</span>      <span class="attr">rôle</span>: "<span class="val">Développeur Front-End</span>",</div>
+                <div class="line"><span class="line-number">5</span>      <span class="attr">mission</span>: "<span class="val">Réaliser un maximum de projet</span>",</div>
+                <div class="line"><span class="line-number">6</span>      <span class="attr">stack</span>: [<span class="val">"HTML"</span>, <span class="val">"CSS"</span>, <span class="val">"JS"</span>, <span class="val">"React"</span>],</div>
+                <div class="line"><span class="line-number">7</span>      <span class="attr">statut</span>: "<span class="bool">en cours de réalisation...</span>"</div>
+                <div class="line"><span class="line-number">8</span> <span class="tag">&lt;/présentation&gt;</span></div>
+            </div>
 
-  <section id="contact">
-  </section>
+            <a href="#contact" class="cta-button">Discutons de ton projet</a>
 
-  <footer>
-    <p>&copy; 2025 Lilian Levert | Portfolio VeltrixDev</p>
-  </footer>
+        </div>
+    </header>
 
-  <script>
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-  
-    // Fonction pour créer dynamiquement le bouton "fermer"
-    function createCloseBtn() {
-      const closeBtn = document.createElement("div");
-      closeBtn.classList.add("close-btn");
-      closeBtn.innerHTML = "&times;";
-      closeBtn.style.position = "absolute";
-      closeBtn.style.top = "-1.25rem";
-      closeBtn.style.right = "2rem";
-      closeBtn.style.fontSize = "5rem";
-      closeBtn.style.color = "white";
-      closeBtn.style.cursor = "pointer";
-      closeBtn.style.zIndex = "1001";
-  
-      closeBtn.addEventListener("click", () => {
-        burger.classList.remove("active");
-        navLinks.classList.remove("active");
-        closeBtn.remove(); // Supprime le bouton après fermeture
+    <section id="about">
+    </section>
+
+    <section id="skills">
+    </section>
+
+    <section id="projects">
+    </section>
+
+    <section id="contact">
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lilian Levert | Portfolio VeltrixDev</p>
+    </footer>
+
+    <script>
+        const burger = document.getElementById("burger");
+        const navLinks = document.getElementById("navLinks");
+      
+        // Fonction pour créer dynamiquement le bouton "fermer"
+        function createCloseBtn() {
+          const closeBtn = document.createElement("div");
+          closeBtn.classList.add("close-btn");
+          closeBtn.innerHTML = "&times;";
+          closeBtn.style.position = "absolute";
+          closeBtn.style.top = "-1.25rem";
+          closeBtn.style.right = "2rem";
+          closeBtn.style.fontSize = "5rem";
+          closeBtn.style.color = "white";
+          closeBtn.style.cursor = "pointer";
+          closeBtn.style.zIndex = "1001";
+      
+          closeBtn.addEventListener("click", () => {
+            burger.classList.remove("active");
+            navLinks.classList.remove("active");
+            closeBtn.remove(); // Supprime le bouton après fermeture
+          });
+      
+          navLinks.appendChild(closeBtn);
+        }
+      
+        burger.addEventListener("click", () => {
+          const isActive = navLinks.classList.contains("active");
+      
+          if (!isActive) {
+            burger.classList.add("active");
+            navLinks.classList.add("active");
+            createCloseBtn();
+          } else {
+            burger.classList.remove("active");
+            navLinks.classList.remove("active");
+      
+            const existingCloseBtn = document.querySelector(".close-btn");
+            if (existingCloseBtn) existingCloseBtn.remove();
+          }
+        });
+      
+        // Animation des lettres du logo
+        const letters = document.querySelectorAll(".letter");
+        setInterval(() => {
+          const index = Math.floor(Math.random() * letters.length);
+          const letter = letters[index];
+          letter.classList.add("flicker");
+          setTimeout(() => letter.classList.remove("flicker"), 300);
+        }, 500);
+    
+        document.querySelectorAll(".disabled-link").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault(); // Empêche la navigation
       });
-  
-      navLinks.appendChild(closeBtn);
-    }
-  
-    burger.addEventListener("click", () => {
-      const isActive = navLinks.classList.contains("active");
-  
-      if (!isActive) {
-        burger.classList.add("active");
-        navLinks.classList.add("active");
-        createCloseBtn();
-      } else {
-        burger.classList.remove("active");
-        navLinks.classList.remove("active");
-  
-        const existingCloseBtn = document.querySelector(".close-btn");
-        if (existingCloseBtn) existingCloseBtn.remove();
-      }
     });
-  
-    // Animation des lettres du logo
-    const letters = document.querySelectorAll(".letter");
-    setInterval(() => {
-      const index = Math.floor(Math.random() * letters.length);
-      const letter = letters[index];
-      letter.classList.add("flicker");
-      setTimeout(() => letter.classList.remove("flicker"), 300);
-    }, 500);
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".counter");
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-count");
+          const count = +counter.innerText;
+          const speed = 200; // Plus petit = plus rapide
+    
+          if (count < target) {
+            counter.innerText = Math.ceil(count + 1);
+            setTimeout(updateCount, speed);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    });
+    
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
 
-    document.querySelectorAll(".disabled-link").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault(); // Empêche la navigation
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const counters = document.querySelectorAll(".counter");
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute("data-count");
-      const count = +counter.innerText;
-      const speed = 200; // Plus petit = plus rapide
-
-      if (count < target) {
-        counter.innerText = Math.ceil(count + 1);
-        setTimeout(updateCount, speed);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  });
-});
-
-  </script>
-  
 </body>
+
 </html>
