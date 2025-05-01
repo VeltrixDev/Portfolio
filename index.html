@@ -306,15 +306,15 @@
       </div>
       <div class="nav-icons">
         <div class="icon-wrapper">
-          <a href="https://github.com/tonpseudo" class="icon-link" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
+            <a href="#" class="icon-link disabled-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>              
           <i class="fas fa-lock icon-lock"></i>
         </div>
         <div class="icon-wrapper">
-          <a href="https://linktr.ee/tonpseudo" class="icon-link" target="_blank" aria-label="Linktree">
-            <i class="fas fa-link"></i>
-          </a>
+            <a href="#" class="icon-link disabled-link" aria-label="Linktree">
+                <i class="fas fa-link"></i>
+              </a>              
           <i class="fas fa-lock icon-lock"></i>
         </div>
       </div>
@@ -417,6 +417,12 @@
       letter.classList.add("flicker");
       setTimeout(() => letter.classList.remove("flicker"), 300);
     }, 500);
+
+    document.querySelectorAll(".disabled-link").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault(); // Empêche la navigation
+  });
+});
   </script>
   
 </body>
