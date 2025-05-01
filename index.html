@@ -39,7 +39,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       overflow: hidden;
     }
 
@@ -59,6 +58,87 @@
       0% { background-position: 0% 0%; }
       100% { background-position: 200% 0%; }
     }
+
+    .hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #0f0f1a 0%, #000 100%);
+  padding: 6rem 2rem 2rem;
+}
+
+.matrix-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.pinimg.com/originals/db/03/96/db039626bfa2ecc53f0f6e7f335aef4c.gif') no-repeat;
+  background-size: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  animation: scroll 60s linear infinite;
+}
+
+@keyframes scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero h1 .glow {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px #f56dee, 0 0 20px #f56dee;
+}
+
+.hero h1 .glitch {
+  font-size: 1.5rem;
+  color: #0ff;
+  animation: flicker-glitch 2s infinite;
+}
+
+@keyframes flicker-glitch {
+  0%, 100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+  50% { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+}
+
+.floating-avatar {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f56dee;
+  animation: float 6s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.pulse-text {
+  animation: pulse 1.5s infinite;
+  display: inline-block;
+  color: #f56dee;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
 
     .logo {
       font-size: 2rem;
@@ -321,11 +401,23 @@
     </div>
   </nav>
 
-  <header id="home">
-    <h1>Salut, moi c'est <span>Lilian Levert</span></h1>
-    <p>Développeur autodidacte passionné par le code, les échecs et la Formule 1</p>
-  </header>
-
+  <header id="home" class="hero">
+    <div class="matrix-bg"></div>
+    <div class="hero-content">
+      <img src="me.png" alt="Lilian Levert" class="floating-avatar" />
+      <h1>
+        <span class="glow">Développeur Web Créatif & Passionné</span><br />
+        <span class="glitch">Je m'appelle Lilian Levert, je crée des expériences web modernes, interactives et performantes</span>
+      </h1>
+      <p class="subtext">
+        Ma priorité : <span class="highlight">efficacité</span>, <span class="highlight">esthétique</span>, et <span class="highlight">satisfaction client</span>.<br />
+        Déjà <span class="counter" data-count="1">0</span> projet réalisé.<br />
+        <span class="pulse-text">Disponible pour de nouveaux projets !</span>
+      </p>
+      <a href="#contact" class="btn cta-btn">Discutons de ton projet</a>
+    </div>
+  </header>  
+  
   <section id="about">
     <h2>À propos de moi</h2>
     <p>Je suis en Terminale STI2D et futur étudiant dans le digital pour devenir développeur full stack...</p>
@@ -423,6 +515,26 @@
     e.preventDefault(); // Empêche la navigation
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute("data-count");
+      const count = +counter.innerText;
+      const speed = 200; // Plus petit = plus rapide
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + 1);
+        setTimeout(updateCount, speed);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+});
+
   </script>
   
 </body>
