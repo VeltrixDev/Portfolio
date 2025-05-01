@@ -34,7 +34,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #1a1a1a;
+      background: #000000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -79,33 +79,63 @@
   height: 100%;
   background: url('https://i.pinimg.com/originals/db/03/96/db039626bfa2ecc53f0f6e7f335aef4c.gif') no-repeat;
   background-size: cover;
-  opacity: 0.1;
+  opacity: 0.3;
   pointer-events: none;
   z-index: 0;
   animation: scroll 60s linear infinite;
-}
-
-@keyframes scroll {
-  from { background-position: 0 0; }
-  to { background-position: 0 1000px; }
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 800px;
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
-.hero h1 .glow {
-  font-size: 2.5rem;
-  color: #fff;
-  text-shadow: 0 0 10px #f56dee, 0 0 20px #f56dee;
+.code-editor {
+  background-color: #1e1e1e00;
+  color: #d4d4d4;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 8px;
+  width: 600px;
+  overflow-x: auto;
+  box-shadow: 0 0px 30px rgb(0, 0, 0);
+  margin: 20px auto;
+  text-align: left;
 }
 
-.hero h1 .glitch {
-  font-size: 1.5rem;
-  color: #0ff;
-  animation: flicker-glitch 2s infinite;
+.line {
+  white-space: pre;
+  line-height: 1.5em;
+}
+
+.line-number {
+  display: inline-block;
+  width: 2em;
+  margin-right: 8px;
+  color: #858585;
+  user-select: none;
+}
+
+.tag {
+  color: #7d00f1;
+}
+
+.attr {
+  color: #c300ff;
+}
+
+.val {
+  color: #e387ff;
+}
+
+.bool {
+  color: #59ff00;
 }
 
 @keyframes flicker-glitch {
@@ -114,8 +144,8 @@
 }
 
 .floating-avatar {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #f56dee;
@@ -125,7 +155,7 @@
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-40px); }
   100% { transform: translateY(0px); }
 }
 
@@ -244,19 +274,24 @@
     .project-card:hover { transform: translateY(-5px); }
     .project-card img { max-width: 100%; border-radius: 0.5rem; margin-bottom: 1rem; }
 
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+    .cta-button {
+  font-size: 1.5rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #000000;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+}
 
-    .btn:hover { background: #ff897b; }
+.cta-button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
 
     form input, form textarea {
       width: 100%;
@@ -312,6 +347,24 @@
     align-items: center;
     width: 100%;
   }
+
+  .code-editor {
+    width: 90%;
+    font-size: 13px;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 20px auto;
+  }
+
+  .line-number {
+    width: 1.8em;
+    margin-right: 6px;
+  }
+
+  .line {
+    line-height: 1.4em;
+  }
+
       .logo {
     flex: 1;
     font-size: 1.5rem;
@@ -363,6 +416,14 @@
       .burger.active div:nth-child(1) { opacity: 0; }
       .burger.active div:nth-child(2) { opacity: 0; }
       .burger.active div:nth-child(3) { opacity: 0; }
+
+      .identity-container {
+    font-size: 1rem;
+    padding: 1.5rem;
+    line-height: 1.4;
+    border-radius: 8px;
+  }
+
     }
   </style>
 </head>
@@ -404,17 +465,23 @@
   <header id="home" class="hero">
     <div class="matrix-bg"></div>
     <div class="hero-content">
-      <img src="me.png" alt="Lilian Levert" class="floating-avatar" />
-      <h1>
-        <span class="glow">Développeur Web Créatif & Passionné</span><br />
-        <span class="glitch">Je m'appelle Lilian Levert, je crée des expériences web modernes, interactives et performantes</span>
-      </h1>
-      <p class="subtext">
-        Ma priorité : <span class="highlight">efficacité</span>, <span class="highlight">esthétique</span>, et <span class="highlight">satisfaction client</span>.<br />
-        Déjà <span class="counter" data-count="1">0</span> projet réalisé.<br />
-        <span class="pulse-text">Disponible pour de nouveaux projets !</span>
-      </p>
-      <a href="#contact" class="btn cta-btn">Discutons de ton projet</a>
+      <img src="me.png" alt="Lilian Levert" class="floating-avatar avatar-glow" />
+      
+      <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">Je crée des expériences web <strong style="color:#7d00f1;">modernes</strong>, <strong style="color:#c300ff;">interactives</strong> et <strong style="color:#e387ff;">performantes</strong> !</p>
+  
+      <div class="code-editor">
+        <div class="line"><span class="line-number">1</span> <span class="tag">&lt;présentation&gt;</span></div>
+        <div class="line"><span class="line-number">2</span>       <span class="attr">nom</span>: "<span class="val">Lilian Levert</span>",</div>
+        <div class="line"><span class="line-number">3</span>       <span class="attr">alias</span>: "<span class="val">VeltrixDev</span>",</div>
+        <div class="line"><span class="line-number">4</span>       <span class="attr">rôle</span>: "<span class="val">Développeur Front-End</span>",</div>
+        <div class="line"><span class="line-number">5</span>       <span class="attr">mission</span>: "<span class="val">Réaliser un maximum de projet</span>",</div>
+        <div class="line"><span class="line-number">6</span>       <span class="attr">stack</span>: [<span class="val">"HTML"</span>, <span class="val">"CSS"</span>, <span class="val">"JS"</span>, <span class="val">"React"</span>],</div>
+        <div class="line"><span class="line-number">7</span>       <span class="attr">statut</span>: "<span class="bool">en cours de réalisation...</span>"</div>
+        <div class="line"><span class="line-number">8</span> <span class="tag">&lt;/présentation&gt;</span></div>
+      </div>      
+
+     <a href="#contact" class="cta-button">Discutons de ton projet</a>
+
     </div>
   </header>  
   
