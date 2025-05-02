@@ -357,6 +357,40 @@
           cursor: pointer;
           z-index: 1001;
         }
+
+        section#about {
+      position: relative;
+      max-width: 1900px;
+      width: 100%;
+      height: 100vh;
+    }
+
+    section#about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://i.pinimg.com/originals/88/a9/69/88a969c3e830bbcbff939ea870058d91.gif') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    section#about::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(10, 10, 35, 0.85); 
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
     
         @media (max-width: 1200px) {
             nav {
@@ -528,8 +562,126 @@
         </div>
     </header>
 
-    <section id="about">
+    <section id="about" style="position: relative; width: 100%; padding: 80px 20px; background: rgba(0, 0, 0, 0.75); z-index: 1;">
+      <div style="max-width: 1200px; margin: 0 auto; color: #f1f1f1; font-family: 'Segoe UI', sans-serif;">
+    
+        <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px;">
+          À propos de <strong style="color:#f56dee;">moi</strong>
+        </h1>
+    
+        <div style="display: flex; flex-wrap: wrap; gap: 60px; justify-content: space-between;">
+    
+          <!-- Colonne gauche : Mon parcours -->
+          <div style="flex: 1; min-width: 300px; box-sizing: border-box;">
+            <h2 style="font-size: 1.75rem; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
+              <span style="color:#f56dee;">&lt;/&gt;</span> Mon parcours
+            </h2>
+    
+            <p style="margin-bottom: 20px; line-height: 1.6;">
+              Je m'appelle <span style="color:#ca69e2;">Lilian</span>, j’ai <span style="color:#7d00f1;">18 ans</span> et je vis à 
+              <span style="color:#ff00ff;">Caen</span>, dans le Nord de la France. Je suis développeur front-end, passionné par l’univers du web 
+              et <span style="color:#7d00f1;">autodidacte</span> depuis 1 an. J’ai appris à coder seul, par curiosité, puis par passion, en explorant les technologies modernes 
+              qui façonnent le web d’aujourd’hui.
+            </p>
+    
+            <p style="margin-bottom: 20px; line-height: 1.6;">
+              Ce qui m’a toujours attiré dans le développement, c’est la possibilité de <span style="color:#ca69e2;">transformer une idée en une expérience interactive et visuelle</span>. 
+              Je me spécialise dans la création d’interfaces web modernes, fluides et intuitives, en mettant toujours l’utilisateur final au cœur de mes priorités.
+            </p>
+    
+            <p style="margin-bottom: 20px; line-height: 1.6;">
+              Chaque projet est pour moi une opportunité d’apprendre, de repousser mes limites et d’approfondir mes compétences en HTML, CSS, JavaScript 
+              et frameworks comme <span style="color:#c084fc;">React</span> ou <span style="color:#f472b6;">Tailwind CSS</span>. Je ne me contente pas de faire fonctionner une interface : 
+              je cherche à la rendre esthétique, accessible, rapide et agréable à utiliser.
+            </p>
+          </div>
+    
+          <!-- Colonne droite : Ma philosophie -->
+          <div style="flex: 1; min-width: 300px; box-sizing: border-box;">
+            <h2 style="font-size: 1.75rem; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
+              <span style="color:#f56dee;">&lt;/&gt;</span> Ma philosophie
+            </h2>
+    
+            <div style="margin-bottom: 30px; padding: 25px; border: 1px solid #f56dee; border-radius: 16px; background: rgba(125, 0, 241, 0.07);">
+              <h3 style="font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">
+                <span>💡</span> Priorité à l’Utilisateur
+              </h3>
+              <p style="line-height: 1.6;">
+                Je conçois des interfaces intuitives qui répondent aux besoins réels des utilisateurs, 
+                en plaçant leur expérience au cœur de chaque projet.
+              </p>
+            </div>
+    
+            <div style="padding: 25px; border: 1px solid #f56dee; border-radius: 16px; background: rgba(125, 0, 241, 0.07);">
+              <h3 style="font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">🚀 Performance Maximale</h3>
+              <p style="line-height: 1.6;">
+                J’optimise chaque ligne de code pour garantir des applications non seulement rapides, 
+                mais aussi réactives et fluides, offrant ainsi une expérience utilisateur exceptionnelle.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Citation large -->
+        <div style="margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.05); border-left: 6px solid #f56dee; border-radius: 12px;">
+          <blockquote style="font-size: 1.2rem; line-height: 1.8; font-style: italic; text-align: center; color: #a0aec0; margin: 0;">
+            "Créer pour le web, c’est bien plus que coder des lignes : c’est concevoir des expériences. Mon objectif est de bâtir des interfaces 
+            qui captivent l’œil, simplifient la navigation et valorisent chaque projet par une identité visuelle forte et cohérente."
+          </blockquote>
+        </div>
+    
+      </div>
     </section>
+    
+    <style>
+      @media (max-width: 1200px) {
+        /* Réduire la taille du titre */
+        #about h1 {
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+        }
+    
+        /* Ajuster la taille des titres de sections */
+        #about h2 {
+          font-size: 1.4rem;
+        }
+    
+        #about h3 {
+          font-size: 0.95rem;
+        }
+    
+        /* Ajuster les colonnes */
+        #about .flex {
+          flex-direction: column;
+          gap: 20px;
+        }
+    
+        #about .flex div {
+          flex: 1 0 100%;
+          box-sizing: border-box;
+        }
+    
+        /* Réduire les marges des sections */
+        #about .texte-section {
+          padding: 8px;
+        }
+    
+        /* Réduire la taille du texte pour plus de clarté */
+        #about p {
+          font-size: 0.85rem;
+          line-height: 1.4;
+        }
+    
+        /* Adapter la citation */
+        #about blockquote {
+          font-size: 0.5rem;
+          line-height: 1.5;
+        }
+        section#about {
+    height: 150vh; /* Hauteur augmentée à 120% de la hauteur de l'écran */
+  }
+      }
+    </style>   
 
     <section id="skills">
     </section>
