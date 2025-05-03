@@ -562,129 +562,540 @@
         </div>
     </header>
 
-    <section id="about" style="position: relative; width: 100%; padding: 80px 20px; background: rgba(0, 0, 0, 0.75); z-index: 1;">
-      <div style="max-width: 1200px; margin: 0 auto; color: #f1f1f1; font-family: 'Segoe UI', sans-serif;">
+    <section id="about">
+      <div class="about-container">
+        <h1>À propos de <strong>moi</strong></h1>
     
-        <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px;">
-          À propos de <strong style="color:#f56dee;">moi</strong>
-        </h1>
-    
-        <div style="display: flex; flex-wrap: wrap; gap: 60px; justify-content: space-between;">
-    
+        <div class="about-columns">
           <!-- Colonne gauche : Mon parcours -->
-          <div style="flex: 1; min-width: 300px; box-sizing: border-box;">
-            <h2 style="font-size: 1.75rem; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
-              <span style="color:#f56dee;">&lt;/&gt;</span> Mon parcours
-            </h2>
-    
-            <p style="margin-bottom: 20px; line-height: 1.6;">
-              Je m'appelle <span style="color:#ca69e2;">Lilian</span>, j’ai <span style="color:#7d00f1;">18 ans</span> et je vis à 
-              <span style="color:#ff00ff;">Caen</span>, dans le Nord de la France. Je suis développeur front-end, passionné par l’univers du web 
-              et <span style="color:#7d00f1;">autodidacte</span> depuis 1 an. J’ai appris à coder seul, par curiosité, puis par passion, en explorant les technologies modernes 
-              qui façonnent le web d’aujourd’hui.
+          <div class="about-left">
+            <h2><span>&lt;/&gt;</span> Mon parcours</h2>
+            <p>
+              Je m'appelle <span class="highlight1">Lilian</span>, j’ai <span class="highlight2">18 ans</span> et je vis à 
+              <span class="highlight3">Caen</span>, dans le Nord de la France. Je suis développeur front-end, passionné par l’univers du web 
+              et <span class="highlight2">autodidacte</span> depuis 1 an. J’ai appris à coder seul, par curiosité, puis par passion.
             </p>
-    
-            <p style="margin-bottom: 20px; line-height: 1.6;">
-              Ce qui m’a toujours attiré dans le développement, c’est la possibilité de <span style="color:#ca69e2;">transformer une idée en une expérience interactive et visuelle</span>. 
-              Je me spécialise dans la création d’interfaces web modernes, fluides et intuitives, en mettant toujours l’utilisateur final au cœur de mes priorités.
+            <p>
+              Ce qui m’a toujours attiré dans le développement, c’est la possibilité de 
+              <span class="highlight1">transformer une idée en une expérience interactive et visuelle</span>. 
             </p>
-    
-            <p style="margin-bottom: 20px; line-height: 1.6;">
-              Chaque projet est pour moi une opportunité d’apprendre, de repousser mes limites et d’approfondir mes compétences en HTML, CSS, JavaScript 
-              et frameworks comme <span style="color:#c084fc;">React</span> ou <span style="color:#f472b6;">Tailwind CSS</span>. Je ne me contente pas de faire fonctionner une interface : 
-              je cherche à la rendre esthétique, accessible, rapide et agréable à utiliser.
+            <p>
+              Chaque projet est pour moi une opportunité d’apprendre, de repousser mes limites et d’approfondir mes compétences 
+              en HTML, CSS, JavaScript et frameworks comme <span class="highlight-react">React</span> ou 
+              <span class="highlight-tailwind">Tailwind CSS</span>.
             </p>
           </div>
     
           <!-- Colonne droite : Ma philosophie -->
-          <div style="flex: 1; min-width: 300px; box-sizing: border-box;">
-            <h2 style="font-size: 1.75rem; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
-              <span style="color:#f56dee;">&lt;/&gt;</span> Ma philosophie
-            </h2>
+          <div class="about-right">
+            <h2><span>&lt;/&gt;</span> Ma philosophie</h2>
     
-            <div style="margin-bottom: 30px; padding: 25px; border: 1px solid #f56dee; border-radius: 16px; background: rgba(125, 0, 241, 0.07);">
-              <h3 style="font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">
-                <span>💡</span> Priorité à l’Utilisateur
-              </h3>
-              <p style="line-height: 1.6;">
+            <div class="philosophy-card">
+              <h3>💡 Priorité à l’Utilisateur</h3>
+              <p>
                 Je conçois des interfaces intuitives qui répondent aux besoins réels des utilisateurs, 
                 en plaçant leur expérience au cœur de chaque projet.
               </p>
             </div>
     
-            <div style="padding: 25px; border: 1px solid #f56dee; border-radius: 16px; background: rgba(125, 0, 241, 0.07);">
-              <h3 style="font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">🚀 Performance Maximale</h3>
-              <p style="line-height: 1.6;">
+            <div class="philosophy-card">
+              <h3>🚀 Performance Maximale</h3>
+              <p>
                 J’optimise chaque ligne de code pour garantir des applications non seulement rapides, 
-                mais aussi réactives et fluides, offrant ainsi une expérience utilisateur exceptionnelle.
+                mais aussi réactives et fluides.
               </p>
             </div>
           </div>
         </div>
     
-        <!-- Citation large -->
-        <div style="margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.05); border-left: 6px solid #f56dee; border-radius: 12px;">
-          <blockquote style="font-size: 1.2rem; line-height: 1.8; font-style: italic; text-align: center; color: #a0aec0; margin: 0;">
-            "Créer pour le web, c’est bien plus que coder des lignes : c’est concevoir des expériences. Mon objectif est de bâtir des interfaces 
-            qui captivent l’œil, simplifient la navigation et valorisent chaque projet par une identité visuelle forte et cohérente."
+        <!-- Citation -->
+        <div class="about-quote">
+          <blockquote>
+            "Créer pour le web, c’est bien plus que coder des lignes : c’est concevoir des expériences. 
+            Mon objectif est de bâtir des interfaces qui captivent l’œil, simplifient la navigation et 
+            valorisent chaque projet par une identité visuelle forte et cohérente."
           </blockquote>
         </div>
-    
       </div>
     </section>
     
     <style>
+      section#about {
+        position: relative;
+        width: 100%;
+        padding: 80px 20px;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 1;
+        height: auto;
+      }
+    
+      .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        color: #f1f1f1;
+        font-family: 'Segoe UI', sans-serif;
+      }
+    
+      #about h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+      }
+    
+      #about h1 strong {
+        color: #f56dee;
+      }
+    
+      .about-columns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        justify-content: space-between;
+      }
+    
+      .about-left,
+      .about-right {
+        flex: 1;
+        min-width: 300px;
+        box-sizing: border-box;
+      }
+    
+      #about h2 {
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+    
+      #about h2 span {
+        color: #f56dee;
+      }
+    
+      #about p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+    
+      .highlight1 {
+        color: #ca69e2;
+      }
+    
+      .highlight2 {
+        color: #7d00f1;
+      }
+    
+      .highlight3 {
+        color: #ff00ff;
+      }
+    
+      .highlight-react {
+        color: #c084fc;
+      }
+    
+      .highlight-tailwind {
+        color: #f472b6;
+      }
+    
+      .philosophy-card {
+        margin-bottom: 30px;
+        padding: 25px;
+        border: 1px solid #f56dee;
+        border-radius: 16px;
+        background: rgba(125, 0, 241, 0.07);
+      }
+    
+      .philosophy-card h3 {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+    
+      .about-quote {
+        margin-top: 60px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 6px solid #f56dee;
+        border-radius: 12px;
+      }
+    
+      .about-quote blockquote {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        font-style: italic;
+        text-align: center;
+        color: #a0aec0;
+        margin: 0;
+      }
+    
+      /* Responsive */
       @media (max-width: 1200px) {
-        /* Réduire la taille du titre */
         #about h1 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           margin-bottom: 30px;
         }
     
-        /* Ajuster la taille des titres de sections */
         #about h2 {
-          font-size: 1.4rem;
+          font-size: 1.3rem;
         }
     
         #about h3 {
-          font-size: 0.95rem;
+          font-size: 1rem;
         }
     
-        /* Ajuster les colonnes */
-        #about .flex {
+        .about-columns {
           flex-direction: column;
-          gap: 20px;
+          gap: 30px;
         }
     
-        #about .flex div {
-          flex: 1 0 100%;
-          box-sizing: border-box;
-        }
-    
-        /* Réduire les marges des sections */
-        #about .texte-section {
-          padding: 8px;
-        }
-    
-        /* Réduire la taille du texte pour plus de clarté */
         #about p {
-          font-size: 0.85rem;
-          line-height: 1.4;
-        }
-    
-        /* Adapter la citation */
-        #about blockquote {
-          font-size: 0.5rem;
+          font-size: 1rem;
           line-height: 1.5;
         }
-        section#about {
-    height: 150vh; /* Hauteur augmentée à 120% de la hauteur de l'écran */
-  }
-      }
-    </style>   
+    
+        .about-quote blockquote {
+          font-size: 0.80rem;
+          line-height: 1.6;
+        }
 
-    <section id="skills">
-    </section>
+        .philosophy-card {
+        padding: 15px;
+        font-size: 1.0rem;
+      }
+      }
+    </style>     
+
+<section id="skills">
+  <div class="container">
+    <h2><span>Mes</span> Compétences</h2>
+    <p>Technologies et outils que j’utilise pour créer des expériences web uniques.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="frontend">Frontend</button>
+      <button class="tab" data-tab="design">Design</button>
+      <button class="tab" data-tab="tools">Tools</button>
+    </div>
+
+    <div class="skills-content">
+      <!-- Frontend -->
+      <div class="tab-content active" id="frontend">
+        <div class="skill-card">
+          <h3>React</h3>
+          <div class="progress" data-percent="90%">
+            <span class="percent-text">90%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Tailwind CSS</h3>
+          <div class="progress" data-percent="95%">
+            <span class="percent-text">95%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>TypeScript</h3>
+          <div class="progress" data-percent="80%">
+            <span class="percent-text">80%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design -->
+      <div class="tab-content" id="design">
+        <div class="skill-card">
+          <h3>Figma</h3>
+          <div class="progress" data-percent="85%">
+            <span class="percent-text">85%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>UI/UX</h3>
+          <div class="progress" data-percent="90%">
+            <span class="percent-text">90%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Responsive</h3>
+          <div class="progress" data-percent="95%">
+            <span class="percent-text">95%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Animations</h3>
+          <div class="progress" data-percent="80%">
+            <span class="percent-text">80%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="tab-content" id="tools">
+        <div class="skill-card">
+          <h3>Git</h3>
+          <div class="progress" data-percent="85%">
+            <span class="percent-text">85%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#skills {
+  background: url('https://i.pinimg.com/originals/73/4f/b6/734fb6ed44aa280fe7546f7035363faf.gif') center/cover no-repeat;
+  color: white;
+  padding: 120px 20px;
+  width: 100%;
+  max-width: none;
+  position: relative;
+}
+*
+
+#skills::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 20, 0.85);
+  z-index: 0;
+}
+
+#skills .container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+#skills h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#skills h2 span {
+  color: #f56dee;
+  text-shadow: 0 0 15px #f56dee;
+}
+
+#skills p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 12px 24px;
+  border: 1px solid #f56dee;
+  border-radius: 25px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: #f56dee;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px #f56dee;
+}
+
+.skills-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: popIn 0.6s ease forwards;
+  opacity: 0;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #f56dee55;
+}
+
+.skill-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.progress {
+  position: relative;
+  height: 12px;
+  background: #222;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--value, 0%);
+  background: #f56dee;
+  transition: width 0.8s ease;
+}
+
+.percent-text {
+  position: absolute;
+  top: -4.5px;
+  right: 75px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 1024px) {
+  #skills h2 {
+    font-size: 2.2rem;
+  }
+
+  #skills p {
+    font-size: 1rem;
+  }
+
+  .skill-card {
+    width: 45%;
+  }
+  .percent-text {
+  position: absolute;
+  top: -4.5px;
+  right: 115px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+}
+
+@media (max-width: 768px) {
+  #skills h2 {
+    font-size: 2rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-card {
+    width: 80%;
+  }
+
+  .progress::after {
+    font-size: 0.8rem;
+    top: -20px;
+  }
+  .percent-text {
+  position: absolute;
+  top: -4.5px;
+  right: 125px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+}
+
+@media (max-width: 480px) {
+  #skills {
+    padding: 60px 15px;
+  }
+
+  #skills h2 {
+    font-size: 1.7rem;
+  }
+
+  .skill-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .percent-text {
+  position: absolute;
+  top: -4.5px;
+  right: 155px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+}
+</style>
+
+<!-- JAVASCRIPT -->
+<script>
+  // Gère les tabs et les barres
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  
+      tab.classList.add('active');
+      const content = document.getElementById(tab.dataset.tab);
+      content.classList.add('active');
+  
+      // Met à jour les barres visibles
+      content.querySelectorAll('.progress').forEach(progress => {
+        const percent = progress.getAttribute('data-percent');
+        progress.style.setProperty('--value', percent);
+        progress.querySelector('.percent-text').textContent = percent;
+      });
+    });
+  });
+  
+  // Initialisation
+  document.querySelectorAll('#frontend .progress').forEach(progress => {
+    const percent = progress.getAttribute('data-percent');
+    progress.style.setProperty('--value', percent);
+    progress.querySelector('.percent-text').textContent = percent;
+  });
+  </script>
 
     <section id="projects">
     </section>
