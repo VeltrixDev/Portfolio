@@ -579,6 +579,9 @@
         </div>
     </header>
 
+    <hr class="futuristic-hr" />
+
+
     <section id="about">
       <div class="about-container">
         <h1>À propos de <span>moi</span></h1>
@@ -635,6 +638,8 @@
         </div>
       </div>
     </section>
+
+    <hr class="futuristic-hr" />
     
     <style>
       section#about {
@@ -847,6 +852,8 @@
     </div>
   </div>
 </section>
+
+<hr class="futuristic-hr" />
 
 <style>
 #skills {
@@ -1100,6 +1107,8 @@
   <p class="subtext">Accès temporairement indisponible</p>
 </section>
 
+<hr class="futuristic-hr" />
+
 <style>
   #projects {
   text-align: center;
@@ -1220,6 +1229,35 @@
       max-width: 1200px;
       margin: auto;
     }
+
+    .futuristic-hr {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  background: #2a2a2a00;
+  overflow: hidden;
+  margin: 4rem auto;
+  border: none;
+}
+
+.futuristic-hr::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 80%;
+  background: linear-gradient(to right, transparent, #f56dee, transparent);
+  animation: move-glow 3s infinite linear;
+}
+
+@keyframes move-glow {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 
     .form-box, .info-box {
       background: #f56dee1a;
@@ -1437,22 +1475,35 @@
   })();
 
   document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    emailjs.send("service_mxx7xif", "template_r2htnol", {
-      firstName: this.firstName.value,
-      lastName: this.lastName.value,
-      email: this.email.value,
-      discord: this.discord.value,
-      subject: this.subject.value,
-      message: this.message.value,
-    }).then(function () {
-      alert("Message envoyé avec succès !");
-    }, function (error) {
-      alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
-      console.log(error);
-    });
+  emailjs.send("service_mxx7xif", "template_r2htnol", {
+    firstName: this.firstName.value,
+    lastName: this.lastName.value,
+    email: this.email.value,
+    discord: this.discord.value,
+    subject: this.subject.value,
+    message: this.message.value,
+  }).then(function (response) {
+    // Affiche le message de succès
+    document.getElementById("form-message").innerHTML = "Message envoyé avec succès !";
+    document.getElementById("form-message").style.display = "block";
+
+    // Cache le message après 3 secondes
+    setTimeout(function() {
+      document.getElementById("form-message").style.display = "none";
+    }, 3000); // Affiche pendant 3 secondes
+  }, function (error) {
+    // Affiche un message d'erreur
+    document.getElementById("form-message").innerHTML = "Erreur lors de l'envoi du message.";
+    document.getElementById("form-message").style.display = "block";
+
+    setTimeout(function() {
+      document.getElementById("form-message").style.display = "none";
+    }, 3000);
+    console.log(error);
   });
+});
 </script>
 
     <script>
@@ -1499,25 +1550,26 @@
         }
       });
 
-      const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav-links');
-  const body = document.querySelector('body');
+      document.getElementById("burger-menu").addEventListener("click", function() {
+  // Affiche le message quand on clique sur le burger menu
+  document.getElementById("burger-message").style.display = "block";
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    body.classList.toggle('menu-open');
-  });
-
-  // Optionnel : Fermer le menu quand un lien est cliqué
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      burger.classList.remove('active');
-      navLinks.classList.remove('active');
-      body.classList.remove('menu-open');
-    });
-  });
+  // Cache le message après 3 secondes
+  setTimeout(function() {
+    document.getElementById("burger-message").style.display = "none";
+  }, 3000); // Affiche le message pendant 3 secondes
+});
     </script>
+    <style>
+      .burger-message {
+  background-color: #f56dee;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+    </style>
 
 </body>
 
