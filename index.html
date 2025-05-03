@@ -27,18 +27,32 @@
     
         body {
           width: 100%;
-          height: 100%;
-          background: #000000;
-          color: #fff;
-          --gap: 5em;
-          --line: 1px;
-          --color: rgba(255, 255, 255, 0.2);
-          background-image: linear-gradient(-90deg,transparent calc(var(--gap) - var(--line)),var(--color) calc(var(--gap) - var(--line) + 1px),var(--color) var(--gap)),linear-gradient(0deg,transparent calc(var(--gap) - var(--line)),
-          var(--color) calc(var(--gap) - var(--line) + 1px),
-          var(--color) var(--gap)
-        );
-      background-size: var(--gap) var(--gap);
+  height: 100%;
+
+  background: #000000;
+  --gap: 4.65em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
+  color: #fff;
     }
+
+    body.menu-open {
+  overflow: hidden;
+}
     
     nav {
       position: sticky;
@@ -89,7 +103,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: radial-gradient(circle at top, #0f0f1a 0%, #000 100%);
       padding: 6rem 2rem 2rem;
     }
     
@@ -99,7 +112,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://i.pinimg.com/originals/db/03/96/db039626bfa2ecc53f0f6e7f335aef4c.gif') no-repeat;
       background-size: cover;
       opacity: 0.3;
       pointer-events: none;
@@ -118,7 +130,7 @@
     }
     
     .code-editor {
-      background-color: #1e1e1e00;
+      background-color: #1e1e1e1a;
       color: #d4d4d4;
       font-family: 'Fira Code', monospace;
       font-size: 20px;
@@ -126,7 +138,7 @@
       border-radius: 8px;
       width: 600px;
       overflow-x: auto;
-      box-shadow: 0 0px 30px rgb(0, 0, 0);
+      box-shadow: 0 0px 30px rgba(255, 255, 255, 0.589);
       margin: 20px auto;
       text-align: left;
     }
@@ -330,7 +342,14 @@
           cursor: pointer;
         }
     
-        footer { text-align: center; padding: 2rem; color: #aaa; }
+        footer {
+  color: #f56dee;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #f56dee30;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+}
     
         .burger {
           display: none;
@@ -369,7 +388,6 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url('https://i.pinimg.com/originals/88/a9/69/88a969c3e830bbcbff939ea870058d91.gif') no-repeat center center;
       background-size: cover;
       z-index: -2;
     }
@@ -378,7 +396,6 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-color: rgba(10, 10, 35, 0.85); 
       z-index: -1;
     }
 
@@ -564,7 +581,7 @@
 
     <section id="about">
       <div class="about-container">
-        <h1>À propos de <strong>moi</strong></h1>
+        <h1>À propos de <span>moi</span></h1>
     
         <div class="about-columns">
           <!-- Colonne gauche : Mon parcours -->
@@ -624,7 +641,6 @@
         position: relative;
         width: 100%;
         padding: 80px 20px;
-        background: rgba(0, 0, 0, 0.75);
         z-index: 1;
         height: auto;
       }
@@ -642,8 +658,9 @@
         margin-bottom: 60px;
       }
     
-      #about h1 strong {
+      #about h1 span {
         color: #f56dee;
+        text-shadow: 0 0 15px #f56dee;
       }
     
       .about-columns {
@@ -701,7 +718,7 @@
         padding: 25px;
         border: 1px solid #f56dee;
         border-radius: 16px;
-        background: rgba(125, 0, 241, 0.07);
+        background: rgba(125, 0, 241, 0.075);
       }
     
       .philosophy-card h3 {
@@ -713,9 +730,9 @@
       .about-quote {
         margin-top: 60px;
         padding: 30px;
-        background: rgba(255, 255, 255, 0.05);
-        border-left: 6px solid #f56dee;
-        border-radius: 12px;
+        background: rgba(255, 255, 255, 0);
+        box-shadow: 0 0px 10px rgba(247, 5, 255, 0.589);
+        border-radius: 15px;
       }
     
       .about-quote blockquote {
@@ -723,7 +740,7 @@
         line-height: 1.8;
         font-style: italic;
         text-align: center;
-        color: #a0aec0;
+        color: #bebaba;
         margin: 0;
       }
     
@@ -780,20 +797,17 @@
       <div class="tab-content active" id="frontend">
         <div class="skill-card">
           <h3>React</h3>
-          <div class="progress" data-percent="90%">
-            <span class="percent-text">90%</span>
+          <div class="progress" data-percent="70%">
           </div>
         </div>
         <div class="skill-card">
           <h3>Tailwind CSS</h3>
-          <div class="progress" data-percent="95%">
-            <span class="percent-text">95%</span>
+          <div class="progress" data-percent="60%">
           </div>
         </div>
         <div class="skill-card">
           <h3>TypeScript</h3>
-          <div class="progress" data-percent="80%">
-            <span class="percent-text">80%</span>
+          <div class="progress" data-percent="50%">
           </div>
         </div>
       </div>
@@ -802,26 +816,22 @@
       <div class="tab-content" id="design">
         <div class="skill-card">
           <h3>Figma</h3>
-          <div class="progress" data-percent="85%">
-            <span class="percent-text">85%</span>
+          <div class="progress" data-percent="50%">
           </div>
         </div>
         <div class="skill-card">
           <h3>UI/UX</h3>
-          <div class="progress" data-percent="90%">
-            <span class="percent-text">90%</span>
+          <div class="progress" data-percent="70%">
           </div>
         </div>
         <div class="skill-card">
           <h3>Responsive</h3>
-          <div class="progress" data-percent="95%">
-            <span class="percent-text">95%</span>
+          <div class="progress" data-percent="80%">
           </div>
         </div>
         <div class="skill-card">
           <h3>Animations</h3>
           <div class="progress" data-percent="80%">
-            <span class="percent-text">80%</span>
           </div>
         </div>
       </div>
@@ -830,8 +840,7 @@
       <div class="tab-content" id="tools">
         <div class="skill-card">
           <h3>Git</h3>
-          <div class="progress" data-percent="85%">
-            <span class="percent-text">85%</span>
+          <div class="progress" data-percent="70%">
           </div>
         </div>
       </div>
@@ -841,7 +850,6 @@
 
 <style>
 #skills {
-  background: url('https://i.pinimg.com/originals/73/4f/b6/734fb6ed44aa280fe7546f7035363faf.gif') center/cover no-repeat;
   color: white;
   padding: 120px 20px;
   width: 100%;
@@ -854,7 +862,6 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 20, 0.85);
   z-index: 0;
 }
 
@@ -867,7 +874,7 @@
 }
 
 #skills h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
@@ -972,13 +979,6 @@
   transition: width 0.8s ease;
 }
 
-.percent-text {
-  position: absolute;
-  top: -4.5px;
-  right: 75px;
-  font-size: 1rem;
-  color: #ffffff;
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -1003,13 +1003,7 @@
   .skill-card {
     width: 45%;
   }
-  .percent-text {
-  position: absolute;
-  top: -4.5px;
-  right: 115px;
-  font-size: 1rem;
-  color: #ffffff;
-}
+
 }
 
 @media (max-width: 768px) {
@@ -1030,13 +1024,6 @@
     font-size: 0.8rem;
     top: -20px;
   }
-  .percent-text {
-  position: absolute;
-  top: -4.5px;
-  right: 125px;
-  font-size: 1rem;
-  color: #ffffff;
-}
 }
 
 @media (max-width: 480px) {
@@ -1058,13 +1045,7 @@
     font-size: 0.9rem;
   }
 
-  .percent-text {
-  position: absolute;
-  top: -4.5px;
-  right: 155px;
-  font-size: 1rem;
-  color: #ffffff;
-}
+
 }
 </style>
 
@@ -1084,7 +1065,6 @@
       content.querySelectorAll('.progress').forEach(progress => {
         const percent = progress.getAttribute('data-percent');
         progress.style.setProperty('--value', percent);
-        progress.querySelector('.percent-text').textContent = percent;
       });
     });
   });
@@ -1093,63 +1073,390 @@
   document.querySelectorAll('#frontend .progress').forEach(progress => {
     const percent = progress.getAttribute('data-percent');
     progress.style.setProperty('--value', percent);
-    progress.querySelector('.percent-text').textContent = percent;
   });
-  </script>
+</script>
 
-    <section id="projects">
-    </section>
 
-    <section id="contact">
-    </section>
+<section id="projects">
+  <div class="projects-header">
+    <h2><span>Mes</span> Projets</h2>
+    <p class="description">
+      Découvrez une sélection de mes projets les plus récents et innovants, combinant design moderne et technologies de pointe.
+    </p>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 Lilian Levert | Portfolio VeltrixDev</p>
-    </footer>
+  <div class="projects-dev">
+    <div class="loader"></div>
+    <h3>Projets en développement</h3>
+    <p>
+      Ces projets sont des exemples de ce que je peux réaliser. Mes projets personnels sont actuellement en cours de développement et seront bientôt disponibles.
+    </p>
+    <button class="locked-button" disabled>
+      🔒 Bientôt disponible
+    </button>
+  </div>
+
+  <button class="view-all" disabled>🔒 Voir tous les projets</button>
+  <p class="subtext">Accès temporairement indisponible</p>
+</section>
+
+<style>
+  #projects {
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  color: #ffffff93;
+}
+
+#projects h2{
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+#projects h2 span{
+  color: #f56dee;
+  text-shadow: 0 0 15px #f56dee;
+}
+
+.projects-header .description {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1rem;
+  color: #707070;
+}
+
+.projects-dev {
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px #f56dee;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #f56dee;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.locked-button,
+.view-all {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #f56dee;
+  border: 1px solid #f56dee;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: not-allowed;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.locked-button:hover,
+.view-all:hover {
+  background-color: #f56dee1c;
+}
+
+.subtext {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+</style>
+
+<section id="contact">
+  <style>
+    #contact {
+      padding: 5rem 2rem;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #contact h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    #contact h1 span {
+      color: #f56dee;
+      text-shadow: 0 0 15px #f56dee;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      background: rgba(245, 109, 238, 0.144);
+      color: #f56dee;
+      padding: 0.7rem 1rem;
+      border-radius: 30px;
+      border: 2px solid #f56dee;
+      font-size: 0.8rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .form-box, .info-box {
+      background: #f56dee1a;
+      border-radius: 15px;
+      padding: 2rem;
+      flex: 1;
+      min-width: 320px;
+      border: 1px solid #f56dee50;
+      box-shadow: 0 0 25px #f56dee40;
+    }
+
+    form {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    input, textarea {
+      background: #0d0617;
+      border: 1px solid #f56dee40;
+      color: white;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f56dee;
+      box-shadow: 0 0 5px #f56dee60;
+    }
+
+.button-container {
+  cursor: pointer;
+  background-color: #f56dee;
+  color: #000;
+  border: none;
+  padding: 13px 30px 13px;
+  clip-path: polygon(
+    0% 0%,
+    64% 0%,
+    64% 10%,
+    70% 10%,
+    75% 1%,
+    100% 0%,
+    100% 80%,
+    95% 100%,
+    42% 100%,
+    42% 90%,
+    34% 90%,
+    34% 100%,
+    5% 100%,
+    0% 80%
+  );
+  transition: all 0.3s ease-in-out;
+}
+.button-container:hover {
+  background-color: #000000;
+}
+.b-m-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgb(0 0 0) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.2) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+  transition: 0.35s;
+}
+@keyframes shine {
+  0% {
+    -webkit-mask-position: 160%;
+  }
+  100% {
+    -webkit-mask-position: -50%;
+  }
+}
+.b-m-text {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 100;
+  margin-right: 10px;
+  font-family: "Franklin Gothic Medium", sans-serif;
+}
+
+.b-m-icon {
+  width: 14px;
+  height: 14px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.b-m-icon svg {
+  fill: #fff;
+}
+
+
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8.5rem;
+    }
+
+    .info-card {
+      background: #0d0617;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #f56dee60;
+    }
+
+    .info-card h3 {
+      color: #f56dee;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-card p, .info-card a {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin: 0.2rem 0;
+    }
+
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <h1><span>Me</span> Contacter</h1>
+  <div class="badges">
+    <div class="badge">✅ Disponible pour de nouveaux projets</div>
+    <div class="badge">⚡ Réponse sous 24h</div>
+  </div>
+
+  <div class="contact-container">
+    <!-- FORMULAIRE -->
+    <div class="form-box">
+      <h2 style="color:#f56dee;">Envoyez-moi un message</h2>
+      <form id="contact-form">
+        <div>
+          <label>Prénom *</label>
+          <input type="text" name="firstName" required>
+        </div>
+        <div>
+          <label>Nom *</label>
+          <input type="text" name="lastName" required>
+        </div>
+        <div>
+          <label>Email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label>Discord (optionnel)</label>
+          <input type="text" name="discord">
+        </div>
+        <div>
+          <label>Sujet *</label>
+          <input type="text" name="subject" required>
+        </div>
+        <div>
+          <label>Message *</label>
+          <textarea name="message" rows="5" required></textarea>
+        </div>
+        <small>🔒 Vos données sont sécurisées.</small>
+<button class="button-container" type="submit">
+  <div class="b-m-container">
+    <div class="b-m-text">Envoyer</div>
+    <div class="b-m-icon">
+      <svg viewBox="0 0 24 24" height="100%" width="100%">
+        <path
+          d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886zM7 4.909 17.243 12 19.091V4.909z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</button>
+
+      </form>
+    </div>
+
+    <!-- INFOS -->
+    <div class="info-box">
+      <div class="info-card">
+        <h3>Email</h3>
+        <p>veltrixdigital14@gmail.com</p>
+        <a href="mailto:veltrixdigital14@gmail.com">M'envoyer un email →</a>
+      </div>
+      <div class="info-card">
+        <h3>Discord</h3>
+        <p>leflowafou</p>
+        <p>N'hésitez pas à m'ajouter pour discuter.</p>
+      </div>
+      <div class="info-card">
+        <h3>Réponse</h3>
+        <p>Réponse garantie en 24h ouvrées.</p>
+      </div>
+      <div class="info-card">
+        <h3>Données</h3>
+        <p>Conforme RGPD. Aucune donnée partagée.</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("K2XlfvvvmEr_T-WB7"); // remplace avec ta clé publique
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.send("service_mxx7xif", "template_r2htnol", {
+      firstName: this.firstName.value,
+      lastName: this.lastName.value,
+      email: this.email.value,
+      discord: this.discord.value,
+      subject: this.subject.value,
+      message: this.message.value,
+    }).then(function () {
+      alert("Message envoyé avec succès !");
+    }, function (error) {
+      alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
+      console.log(error);
+    });
+  });
+</script>
 
     <script>
-        const burger = document.getElementById("burger");
-        const navLinks = document.getElementById("navLinks");
-      
-        // Fonction pour créer dynamiquement le bouton "fermer"
-        function createCloseBtn() {
-          const closeBtn = document.createElement("div");
-          closeBtn.classList.add("close-btn");
-          closeBtn.innerHTML = "&times;";
-          closeBtn.style.position = "absolute";
-          closeBtn.style.top = "-1.25rem";
-          closeBtn.style.right = "2rem";
-          closeBtn.style.fontSize = "5rem";
-          closeBtn.style.color = "white";
-          closeBtn.style.cursor = "pointer";
-          closeBtn.style.zIndex = "1001";
-      
-          closeBtn.addEventListener("click", () => {
-            burger.classList.remove("active");
-            navLinks.classList.remove("active");
-            closeBtn.remove(); // Supprime le bouton après fermeture
-          });
-      
-          navLinks.appendChild(closeBtn);
-        }
-      
-        burger.addEventListener("click", () => {
-          const isActive = navLinks.classList.contains("active");
-      
-          if (!isActive) {
-            burger.classList.add("active");
-            navLinks.classList.add("active");
-            createCloseBtn();
-          } else {
-            burger.classList.remove("active");
-            navLinks.classList.remove("active");
-      
-            const existingCloseBtn = document.querySelector(".close-btn");
-            if (existingCloseBtn) existingCloseBtn.remove();
-          }
-        });
-      
-        // Animation des lettres du logo
+     // Animation des lettres du logo
         const letters = document.querySelectorAll(".letter");
         setInterval(() => {
           const index = Math.floor(Math.random() * letters.length);
@@ -1191,6 +1498,25 @@
           nav.classList.remove("scrolled");
         }
       });
+
+      const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.querySelector('body');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    body.classList.toggle('menu-open');
+  });
+
+  // Optionnel : Fermer le menu quand un lien est cliqué
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('active');
+      navLinks.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
     </script>
 
 </body>
