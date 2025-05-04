@@ -173,7 +173,7 @@ nav.scrolled {
       padding: 15px; /* Taille du cercle */
       width: 60px; /* Largeur du cercle */
       height: 60px; /* Hauteur du cercle */
-      display: flex;
+      display: flex !important;
       justify-content: center; /* Centrer horizontalement */
       align-items: center; /* Centrer verticalement */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -192,42 +192,29 @@ nav.scrolled {
     .scroll-to-top svg {
       width: 30px; /* Largeur de la flèche */
       height: 40px; /* Hauteur de la flèche */
-      transform: translate(-2px, -3px);
+      transform: translate(0px, 3px);
     }
   </style>
 </head>
 <body>
 
-  <!-- Le bouton de la flèche -->
-  <button class="scroll-to-top" id="scrollToTopBtn">
-    <!-- Le SVG de la flèche -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<!-- BOUTON DE RETOUR EN HAUT TOUJOURS AFFICHÉ -->
+<button class="scroll-to-top" id="scrollToTopBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 3 18 9" />
       <line x1="12" y1="3" x2="12" y2="16" />
     </svg>
   </button>
-
+  
   <script>
-    // Récupérer le bouton
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-
-    // Afficher ou cacher le bouton en fonction du défilement
-    window.onscroll = function() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollToTopBtn.style.display = "block";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    };
-
-    // Fonction pour faire défiler vers le haut de la page
     scrollToTopBtn.onclick = function() {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     };
-  </script>
+  </script>  
 
 <body>
     <nav>
