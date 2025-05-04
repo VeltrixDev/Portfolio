@@ -1387,10 +1387,13 @@ section {
                 </div>
               </div>
             </button>
-          </form>          
+          </form>
+          
+          <!-- Message de confirmation -->
+          <div id="form-response" style="margin-top: 1rem; font-weight: bold; color: green;"></div>
       </div>
     </div>
-</section>  
+</section> 
 
   <style>
 #contact {
@@ -1403,6 +1406,12 @@ section {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 1rem;
+}
+
+#form-response {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: green; 
 }
 
 #contact h1 span {
@@ -1589,10 +1598,12 @@ textarea:focus {
   </style>
   
   <script>
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-  event.preventDefault();
-  document.getElementById('form-response').innerText = '✅ Votre message a bien été envoyé!';
 
+document.getElementById('contact-form').addEventListener('submit', function () {
+  // Afficher un message de confirmation après l'envoi
+  document.getElementById('form-response').innerText = '✅ Votre message a bien été envoyé!';
+  
+  // Si tu veux ajouter d'autres effets, tu peux les ajouter ici, mais sans empêcher l'envoi
 
     // Animation lettres logo
     const letters = document.querySelectorAll(".letter");
